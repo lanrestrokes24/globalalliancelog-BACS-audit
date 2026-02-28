@@ -44,7 +44,7 @@
         .hero-title {
             font-size: clamp(1.5rem, 8vw, 3.5rem);
             font-weight: 900;
-            margin: 0 0 40px 0;
+            margin: 0 0 20px 0;
             letter-spacing: 2px;
             text-transform: uppercase;
         }
@@ -215,6 +215,22 @@
             margin: 0; 
         }
         
+        .diagnostic-box {
+            background: rgba(248, 113, 113, 0.05);
+            padding: clamp(20px, 4vw, 30px);
+            border-radius: 12px;
+            border: 1px solid var(--critical);
+            margin: 20px 0;
+        }
+        
+        .diagnostic-title {
+            color: var(--critical);
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            font-size: clamp(0.8rem, 2vw, 0.95rem);
+        }
+        
         .formula-box {
             background: #000;
             padding: clamp(15px, 4vw, 25px);
@@ -222,6 +238,7 @@
             text-align: center;
             border: 1px solid var(--border);
             overflow-x: auto;
+            margin: 20px 0;
         }
         
         .formula-text { 
@@ -262,6 +279,33 @@
         
         .evidence-img:hover { 
             filter: grayscale(0%); 
+        }
+        
+        .triage-step {
+            background: linear-gradient(135deg, rgba(52, 211, 153, 0.1) 0%, rgba(56, 189, 248, 0.1) 100%);
+            padding: clamp(20px, 4vw, 30px);
+            border-radius: 12px;
+            border-left: 4px solid var(--success);
+            margin: 20px 0;
+        }
+        
+        .triage-step-number {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            font-weight: 900;
+            color: var(--success);
+            margin-bottom: 10px;
+        }
+        
+        .triage-step-title {
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            font-weight: bold;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+        
+        .triage-step-desc {
+            font-size: clamp(0.8rem, 2vw, 0.95rem);
+            color: var(--text-secondary);
         }
 
         .logic-table { 
@@ -540,7 +584,7 @@
 </head>
 <body>
 
-<!-- HERO SECTION - Score and Formula (First Full Screen) -->
+<!-- HERO SECTION - Score and Formula -->
 <section class="hero-section">
     <h1 class="hero-title">STRUCTURAL CERTAINTY AUDIT</h1>
     <p class="hero-subtitle">Global Alliance Logistics | Framework: BACS v2.0</p>
@@ -552,18 +596,18 @@
     
     <div class="formula-box-large">
         <div class="formula-text-large">B = M × (<span class="formula-highlight">D + F</span>) × P</div>
-        <div class="formula-label">DETECTION: SEVERE DIAGNOSIS VOID</div>
+        <div class="formula-label">DIAGNOSIS: CHOICE-TO-NOWHERE LOOP DETECTED</div>
     </div>
     
-    <div class="scroll-indicator">↓ Scroll to see details ↓</div>
+    <div class="scroll-indicator">↓ Scroll to see the problem & solution ↓</div>
 </section>
 
 <!-- MAIN CONTENT -->
 <main class="audit-card">
     <header class="header">
         <div class="header-title">
-            <h1>AUDIT DETAILS</h1>
-            <p>Complete Analysis & Recommendations</p>
+            <h1>AUDIT ANALYSIS</h1>
+            <p>The Structural Void: 8-Grid Chaos</p>
         </div>
         <div class="score-circle">
             <span class="score-num">03</span>
@@ -572,76 +616,123 @@
     </header>
 
     <div class="content">
-        <div class="section-header"><h2>01. Conversion Axiom Analysis</h2></div>
-        <p>Motivation (M) is verified via global freight demand. Proof (P) is elite via existing certifications. However, the site fails at <strong>Diagnosis (D)</strong>. Prospects are forced into a "Wait State," manually selecting services without a diagnostic check.</p>
-
-        <div class="section-header"><h2>02. The Wall of Choice (Cognitive Load)</h2></div>
-        <div class="evidence-frame">
-            <div class="evidence-label"><span>Asset: wall_of_choice</span><span>Source: Antigravity v4.2</span></div>
-            <img src="assets/wall_of_choice.png" class="evidence-img" alt="Service Grid Overload">
+        <div class="section-header"><h2>01. THE PROBLEM: Choice-to-Nowhere Loop</h2></div>
+        
+        <div class="diagnostic-box">
+            <div class="diagnostic-title">🔴 Barrier Type: Information Overload + Fake Doors</div>
+            <p>The current site presents <strong>8 distinct service icons</strong> (Air, Sea, Rail, Road, Customs, etc.). However, all 8 paths lead to the same generic /services page. The user's specific intent is ignored.</p>
+            <p><strong>Result:</strong> High cognitive load (F) + Low certainty (D) = Booking abandonment</p>
         </div>
-        <p style="font-size: 0.9rem; color: var(--text-secondary);">The 8-option service grid requires the prospect to self-diagnose complex logistics before reaching a specialist. This creates immediate cognitive fatigue and high bounce probability.</p>
 
-        <div class="section-header"><h2>03. The Data-Entry Black Box (Friction)</h2></div>
-        <div class="evidence-frame">
-            <div class="evidence-label"><span>Asset: friction_capture_form</span><span>Status: High Friction (F-)</span></div>
-            <img src="assets/friction_capture_form.png" class="evidence-img" alt="Form Friction Capture">
+        <div class="section-header"><h2>02. THE LEAK: Diagnosis Deficit</h2></div>
+        <div class="formula-box">
+            <div class="formula-text">B = M × (<span style="color: var(--critical)">D + F</span>) × P</div>
+            <div style="color: var(--critical); font-size: 0.8rem; font-weight: bold; margin-top: 10px;">PROBLEM: Low Diagnosis (D) + High Friction (F) = Zero Booking (B)</div>
         </div>
-        <p style="font-size: 0.9rem; color: var(--text-secondary);">Prospects are asked for 10+ data points without receiving a 'Certainty Signal' in return. This is a primary D+F Leak.</p>
+        
+        <p>The prospect must self-diagnose their freight type before the system can help them. This burden shifts the cognitive work from the sales team (where it belongs) to the prospect (where it kills conversion).</p>
 
-        <div class="section-header"><h2>04. Proposed Asset: Logistics Certainty Navigator</h2></div>
+        <div class="section-header"><h2>03. THE WALL OF CHOICE</h2></div>
+        <div class="evidence-frame">
+            <div class="evidence-label"><span>Asset: Wall of 8 Choices</span><span>Status: Cognitive Overload</span></div>
+            <img src="assets/wall_of_choice.png" class="evidence-img" alt="The 8-Service Grid Problem">
+        </div>
+        <p style="font-size: 0.9rem; color: var(--text-secondary);">Prospects are overwhelmed before they've even selected a service. This is where most bookings die.</p>
+
+        <div class="section-header"><h2>04. THE FRICTION: Data-Entry Black Box</h2></div>
+        <div class="evidence-frame">
+            <div class="evidence-label"><span>Asset: Form Friction</span><span>Status: 10+ Data Points Required</span></div>
+            <img src="assets/friction_capture_form.png" class="evidence-img" alt="Form Friction - Too Many Fields">
+        </div>
+        <p style="font-size: 0.9rem; color: var(--text-secondary);">Even after choosing a service, prospects are forced to fill 10+ fields without a 'certainty signal' in return (e.g., "Your lane is covered by our WCA-certified network"). This is primary D+F failure.</p>
+
+        <!-- SOLUTION SECTION -->
+        <div class="section-header"><h2>05. THE SOLUTION: Freight Certainty Triage (FCT)</h2></div>
+        
         <div class="evidence-frame" style="border-color: var(--success); background: rgba(52, 211, 153, 0.05);">
-            <div class="evidence-label" style="background: var(--success); color: #000;"><span>Reinforcement Asset: p_signal</span></div>
-            <img src="assets/p_signal.png" class="evidence-img" alt="Trust Anchoring">
+            <div class="evidence-label" style="background: var(--success); color: #000;"><span>Proposed Asset: FCT Blueprint</span><span>Status: Ready for Implementation</span></div>
+            <img src="assets/p_signal.png" class="evidence-img" alt="The Solution: Certainty Triage">
         </div>
+        
+        <p>Replace the 8-grid with a <strong>3-step diagnostic</strong> that moves the burden from the prospect to the system.</p>
+        
+        <div class="triage-step">
+            <div class="triage-step-number">STEP 1</div>
+            <div class="triage-step-title">Intent Triage: Urgency Selection</div>
+            <div class="triage-step-desc">Replace 8 choices with 3 intent-based buttons:</div>
+            <ul style="margin: 10px 0; padding-left: 20px; font-size: clamp(0.8rem, 2vw, 0.9rem);">
+                <li><strong>(A) Time-Critical</strong> → Air Freight Specialist</li>
+                <li><strong>(B) High-Volume</strong> → Sea/Rail Bulk Shipper</li>
+                <li><strong>(C) Specialized</strong> → Project/Dangerous Cargo Expert</li>
+            </ul>
+        </div>
+        
+        <div class="triage-step">
+            <div class="triage-step-number">STEP 2</div>
+            <div class="triage-step-title">Destination Locking: Network Validation</div>
+            <div class="triage-step-desc">Single-field input: "Where are you shipping to?"</div>
+            <p style="margin-top: 10px; font-size: clamp(0.8rem, 2vw, 0.9rem);">Instantly triggers a P-Signal: "<strong>✓ WCA Certified Network Active in [Country]</strong>"</p>
+            <p style="margin: 10px 0 0 0; font-size: clamp(0.75rem, 1.8vw, 0.85rem); color: var(--text-secondary);">This provides certainty that their freight type + destination is feasible.</p>
+        </div>
+        
+        <div class="triage-step">
+            <div class="triage-step-number">STEP 3</div>
+            <div class="triage-step-title">Frictionless Handover: One-Field Quote</div>
+            <div class="triage-step-desc">Email-only field (system already knows cargo type & destination)</div>
+            <p style="margin-top: 10px; font-size: clamp(0.8rem, 2vw, 0.9rem);">Button text changes from "Submit Form" to:</p>
+            <p style="margin: 10px 0 0 0; font-weight: bold; color: var(--success); font-size: clamp(0.85rem, 2.2vw, 1rem);">🔒 SECURE SHIPMENT REQUEST → [SLA & WCA Logos]</p>
+            <p style="margin: 10px 0 0 0; font-size: clamp(0.75rem, 1.8vw, 0.85rem); color: var(--text-secondary);">Trust anchors transform a form submission into a secure action.</p>
+        </div>
+
+        <div class="section-header"><h2>06. Post-Fix Score Projection</h2></div>
         <table class="logic-table">
             <thead>
-                <tr><th width="10%">Step</th><th width="30%">Action</th><th>Objective</th></tr>
+                <tr><th width="20%">Metric</th><th width="30%">Before (Current)</th><th>After (FCT)</th></tr>
             </thead>
             <tbody>
                 <tr>
-                    <td data-label="Step">01</td>
-                    <td data-label="Action"><strong>Route Triage</strong></td>
-                    <td data-label="Objective">Validate lane feasibility instantly to prove network scope.</td>
+                    <td data-label="Metric">Diagnosis (D)</td>
+                    <td data-label="Before">Very Low — 8 choices confuse intent</td>
+                    <td data-label="After">Very High — 3 categories clarify intent</td>
                 </tr>
                 <tr>
-                    <td data-label="Step">02</td>
-                    <td data-label="Action"><strong>Cargo Diagnostic</strong></td>
-                    <td data-label="Objective">Shift from "Which Service?" to "What Constraint?".</td>
+                    <td data-label="Metric">Friction (F)</td>
+                    <td data-label="Before">Very High — 10+ form fields</td>
+                    <td data-label="After">Very Low — 2 fields + 1 email</td>
                 </tr>
                 <tr>
-                    <td data-label="Step">03</td>
-                    <td data-label="Action"><strong>Feasibility Lock</strong></td>
-                    <td data-label="Objective">Anchor P-Signals (WCA/SLA) at the point of decision.</td>
+                    <td data-label="Metric">Booking Rate (B)</td>
+                    <td data-label="Before">Score: 3/10 (Critical)</td>
+                    <td data-label="After">Score: 9/10 (Optimized)</td>
                 </tr>
             </tbody>
         </table>
 
-        <div class="section-header"><h2>05. Score Justification</h2></div>
-        <div style="background: rgba(239, 68, 68, 0.05); padding: clamp(15px, 4vw, 25px); border-radius: 12px; border: 1px dashed var(--critical);">
-            <p style="margin: 0; font-size: clamp(0.8rem, 2vw, 0.9rem);"><strong>Classification: Critical Failure.</strong> The site abandons the prospect at the point of intent. By providing no immediate diagnosis, the company forces the prospect to perform the work that the internal sales team should be doing. <strong>Target Score after Fix: 9.4/10.</strong></p>
+        <div class="section-header"><h2>07. Structural Justification</h2></div>
+        <div style="background: rgba(52, 211, 153, 0.05); padding: clamp(15px, 4vw, 25px); border-radius: 12px; border: 1px dashed var(--success);">
+            <p style="margin: 0; font-size: clamp(0.8rem, 2vw, 0.9rem);"><strong style="color: var(--success);">✓ Classification: Optimized.</strong> By installing the Freight Certainty Triage, Global Alliance Logistics shifts from a "prospect-chooses" model to a "system-diagnoses" model. This eliminates both the 'Wall of Choice' and the 'Form Friction,' enabling instant booking momentum.</p>
+            <p style="margin: 15px 0 0 0; font-size: clamp(0.8rem, 2vw, 0.9rem);">The FCT blueprint is architect-ready for implementation by your development team.</p>
         </div>
     </div>
 
     <div class="cta-box">
-        <h3>READY TO FIX THE D+F LEAK?</h3>
-        <p>Unlock the Full Structural Blueprint and Triage Logic.</p>
+        <h3>READY TO IMPLEMENT THE FCT?</h3>
+        <p>Unlock the Full Blueprint & Implementation Timeline</p>
         
         <div class="contact-methods">
             <!-- WhatsApp Button -->
-            <a href="https://wa.me/2348065062418?text=Hi%20I%20am%20interested%20in%20your%20services" class="btn btn-whatsapp" target="_blank">
+            <a href="https://wa.me/2348065062418?text=Hi%20I%20am%20interested%20in%20implementing%20the%20Freight%20Certainty%20Triage" class="btn btn-whatsapp" target="_blank">
                 📱 WhatsApp: +234 806 506 2418
             </a>
             
             <!-- Email Button -->
-            <a href="mailto:lanrestrokes@gmail.com?subject=Structural%20Certainty%20Audit%20Inquiry" class="btn btn-email" target="_blank">
+            <a href="mailto:lanrestrokes@gmail.com?subject=FCT%20Blueprint%20Implementation%20Inquiry" class="btn btn-email" target="_blank">
                 ✉️ Email: lanrestrokes@gmail.com
             </a>
         </div>
         
         <div class="footer-note">
-            MANDATORY DISCLOSURE: I provide structural blueprints and logic orchestration for implementation. <br>
-            I am not a manual designer or front-end programmer.
+            <strong>MANDATORY DISCLOSURE:</strong> I provide the structural blueprint and triage logic for your team to implement. I am not a manual designer or front-end programmer. The FCT is architect-ready and requires development/QA resources for deployment.
         </div>
     </div>
 </main>
