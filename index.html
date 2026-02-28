@@ -207,8 +207,19 @@
             font-size: clamp(0.75rem, 2vw, 0.9rem);
             margin: 10px 0;
         }
+        
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 30px 0;
+            align-items: center;
+        }
+        
         .btn {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             background: var(--accent);
             color: #000;
             padding: clamp(12px, 3vw, 18px) clamp(25px, 5vw, 40px);
@@ -216,17 +227,40 @@
             font-weight: 800;
             text-decoration: none;
             letter-spacing: 1px;
-            margin-top: 20px;
-            box-shadow: 0 4px 14px 0 rgba(56, 189, 248, 0.4);
             font-size: clamp(0.75rem, 2vw, 0.9rem);
             border: none;
             cursor: pointer;
             transition: all 0.3s ease;
+            gap: 10px;
         }
+        
+        .btn-whatsapp {
+            background: #25d366;
+            color: #fff;
+        }
+        
+        .btn-email {
+            background: #ea4335;
+            color: #fff;
+        }
+        
+        .btn-calendly {
+            background: var(--accent);
+        }
+        
         .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px 0 rgba(56, 189, 248, 0.6);
+            box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.4);
         }
+        
+        .btn-whatsapp:hover {
+            box-shadow: 0 6px 20px 0 rgba(37, 211, 102, 0.4);
+        }
+        
+        .btn-email:hover {
+            box-shadow: 0 6px 20px 0 rgba(234, 67, 53, 0.4);
+        }
+        
         .footer-note { 
             font-size: 0.65rem; 
             color: #4a5568; 
@@ -264,6 +298,13 @@
                 margin-bottom: 12px;
                 padding: 8px;
             }
+            .contact-methods {
+                flex-direction: column;
+                width: 100%;
+            }
+            .btn {
+                width: 100%;
+            }
         }
 
         /* Tablet optimizations */
@@ -276,6 +317,14 @@
             }
             .content {
                 padding: 25px;
+            }
+            .contact-methods {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .btn {
+                flex: 0 1 auto;
             }
         }
 
@@ -309,6 +358,14 @@
             }
             .logic-table td:before {
                 display: none;
+            }
+            .contact-methods {
+                flex-direction: row;
+                justify-content: center;
+                gap: 20px;
+            }
+            .btn {
+                flex: 0 1 auto;
             }
         }
     </style>
@@ -386,7 +443,18 @@
     <div class="cta-box">
         <h3>READY TO FIX THE D+F LEAK?</h3>
         <p>Unlock the Full Structural Blueprint and Triage Logic.</p>
-        <a href="YOUR_CALENDLY_LINK" class="btn">BOOK 10-MINUTE FEASIBILITY CALL</a>
+        
+        <div class="contact-methods">
+            <!-- WhatsApp Button -->
+            <a href="https://wa.me/2348065062418?text=Hi%20I%20am%20interested%20in%20your%20services" class="btn btn-whatsapp" target="_blank">
+                📱 WhatsApp: +234 806 506 2418
+            </a>
+            
+            <!-- Email Button -->
+            <a href="mailto:lanrestrokes@gmail.com?subject=Structural%20Certainty%20Audit%20Inquiry" class="btn btn-email" target="_blank">
+                ✉️ Email: lanrestrokes@gmail.com
+            </a>
+        </div>
         
         <div class="footer-note">
             MANDATORY DISCLOSURE: I provide structural blueprints and logic orchestration for implementation. <br>
