@@ -16,14 +16,118 @@
             --text-secondary: #94a3b8;
         }
         * { box-sizing: border-box; }
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--bg);
             color: var(--text-primary);
-            padding: 20px;
-            margin: 0;
             line-height: 1.6;
+            overflow-x: hidden;
         }
+        
+        /* Hero Section - Score and Formula */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #1e293b 0%, #0a0f1a 100%);
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .hero-title {
+            font-size: clamp(1.5rem, 8vw, 3.5rem);
+            font-weight: 900;
+            margin: 0 0 40px 0;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(0.8rem, 3vw, 1.2rem);
+            color: var(--text-secondary);
+            margin: 0 0 60px 0;
+        }
+        
+        .score-circle-large {
+            width: clamp(150px, 40vw, 280px);
+            height: clamp(150px, 40vw, 280px);
+            border-radius: 50%;
+            border: 8px solid var(--critical);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: rgba(248, 113, 113, 0.1);
+            margin: 0 auto 60px;
+            box-shadow: 0 0 60px rgba(248, 113, 113, 0.3);
+        }
+        
+        .score-num-large { 
+            font-size: clamp(3rem, 15vw, 5rem); 
+            font-weight: 900; 
+            color: var(--critical);
+            line-height: 1;
+        }
+        
+        .score-label-large { 
+            font-size: clamp(0.8rem, 3vw, 1.2rem); 
+            text-transform: uppercase; 
+            color: var(--text-secondary);
+            letter-spacing: 2px;
+            margin-top: 10px;
+        }
+        
+        .formula-box-large {
+            background: #000;
+            padding: clamp(30px, 6vw, 50px);
+            border-radius: 16px;
+            border: 2px solid var(--critical);
+            margin: 40px auto;
+            max-width: 600px;
+            box-shadow: 0 0 40px rgba(248, 113, 113, 0.2);
+        }
+        
+        .formula-text-large { 
+            font-family: 'Courier New', monospace; 
+            font-size: clamp(1.8rem, 6vw, 2.8rem); 
+            font-weight: bold;
+            color: var(--text-primary);
+            margin: 0 0 20px 0;
+        }
+        
+        .formula-highlight {
+            color: var(--critical);
+        }
+        
+        .formula-label {
+            color: var(--critical); 
+            font-size: clamp(0.75rem, 2.5vw, 1rem); 
+            font-weight: bold; 
+            margin-top: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .scroll-indicator {
+            margin-top: 60px;
+            font-size: clamp(0.8rem, 2vw, 1rem);
+            color: var(--accent);
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(10px); }
+        }
+        
+        /* Main Content Section */
         .audit-card {
             max-width: 900px;
             margin: 0 auto;
@@ -33,6 +137,7 @@
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
             overflow: hidden;
         }
+        
         .header {
             padding: 20px;
             border-bottom: 1px solid var(--border);
@@ -43,20 +148,24 @@
             flex-wrap: wrap;
             gap: 20px;
         }
+        
         .header-title {
             flex: 1;
             min-width: 200px;
         }
+        
         .header-title h1 {
             margin: 0;
             font-size: clamp(1.2rem, 5vw, 1.8rem);
             font-weight: 800;
         }
+        
         .header-title p {
             margin: 5px 0 0;
             font-size: clamp(0.75rem, 3vw, 0.9rem);
             color: var(--text-secondary);
         }
+        
         .score-circle {
             width: 80px;
             height: 80px;
@@ -69,11 +178,13 @@
             align-items: center;
             background: rgba(248, 113, 113, 0.1);
         }
+        
         .score-num { 
             font-size: clamp(1.2rem, 4vw, 2rem); 
             font-weight: 800; 
             color: var(--critical); 
         }
+        
         .score-label { 
             font-size: 0.55rem; 
             text-transform: uppercase; 
@@ -84,6 +195,7 @@
         .content { 
             padding: clamp(15px, 4vw, 40px); 
         }
+        
         .section-header {
             display: flex;
             align-items: center;
@@ -92,7 +204,9 @@
             border-bottom: 1px solid var(--border);
             padding-bottom: 10px;
         }
+        
         .section-header:first-child { margin-top: 0; }
+        
         .section-header h2 { 
             font-size: clamp(0.7rem, 2.5vw, 0.9rem); 
             text-transform: uppercase; 
@@ -109,6 +223,7 @@
             border: 1px solid var(--border);
             overflow-x: auto;
         }
+        
         .formula-text { 
             font-family: 'Courier New', monospace; 
             font-size: clamp(1rem, 3vw, 1.6rem); 
@@ -123,6 +238,7 @@
             overflow: hidden;
             background: #070b14;
         }
+        
         .evidence-label {
             padding: 10px 15px;
             background: #1e293b;
@@ -135,6 +251,7 @@
             flex-wrap: wrap;
             gap: 10px;
         }
+        
         .evidence-img { 
             width: 100%; 
             height: auto; 
@@ -142,6 +259,7 @@
             filter: grayscale(20%); 
             transition: 0.3s;
         }
+        
         .evidence-img:hover { 
             filter: grayscale(0%); 
         }
@@ -154,9 +272,11 @@
             overflow-x: auto;
             display: block;
         }
+        
         .logic-table thead {
             display: none;
         }
+        
         .logic-table th { 
             text-align: left; 
             font-size: 0.8rem; 
@@ -164,12 +284,14 @@
             padding: 12px; 
             border-bottom: 1px solid var(--border); 
         }
+        
         .logic-table td { 
             padding: 12px; 
             border-bottom: 1px solid var(--border); 
             display: block;
             text-align: left;
         }
+        
         .logic-table tr {
             display: block;
             margin-bottom: 15px;
@@ -178,6 +300,7 @@
             padding: 10px;
             background: rgba(30, 41, 59, 0.3);
         }
+        
         .logic-table td:before {
             content: attr(data-label);
             font-weight: bold;
@@ -187,6 +310,7 @@
             font-size: 0.7rem;
             text-transform: uppercase;
         }
+        
         .step-num { 
             color: var(--accent); 
             font-weight: bold;
@@ -198,10 +322,12 @@
             text-align: center;
             border-top: 1px solid var(--border);
         }
+        
         .cta-box h3 {
             margin: 0;
             font-size: clamp(1rem, 4vw, 1.2rem);
         }
+        
         .cta-box p {
             color: var(--text-secondary);
             font-size: clamp(0.75rem, 2vw, 0.9rem);
@@ -244,10 +370,6 @@
             color: #fff;
         }
         
-        .btn-calendly {
-            background: var(--accent);
-        }
-        
         .btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.4);
@@ -270,38 +392,61 @@
 
         /* Mobile-specific optimizations */
         @media (max-width: 640px) {
-            body {
-                padding: 10px;
+            .hero-section {
+                min-height: 90vh;
+                padding: 20px;
             }
+            
+            .hero-title {
+                margin-bottom: 20px;
+            }
+            
+            .hero-subtitle {
+                margin-bottom: 30px;
+            }
+            
+            body {
+                padding: 0;
+            }
+            
             .audit-card {
                 border-radius: 12px;
+                margin-top: 20px;
             }
+            
             .header {
                 padding: 15px;
                 flex-direction: column;
                 align-items: flex-start;
             }
+            
             .score-circle {
                 align-self: flex-end;
                 margin-top: -15px;
             }
+            
             .content {
                 padding: 15px;
             }
+            
             .section-header {
                 margin: 20px 0 12px;
             }
+            
             .evidence-frame {
                 margin: 15px 0;
             }
+            
             .logic-table tr {
                 margin-bottom: 12px;
                 padding: 8px;
             }
+            
             .contact-methods {
                 flex-direction: column;
                 width: 100%;
             }
+            
             .btn {
                 width: 100%;
             }
@@ -309,20 +454,29 @@
 
         /* Tablet optimizations */
         @media (min-width: 641px) and (max-width: 1024px) {
-            body {
-                padding: 20px;
+            .hero-section {
+                min-height: 100vh;
+                padding: 30px;
             }
+            
+            .audit-card {
+                margin-top: 30px;
+            }
+            
             .header {
                 padding: 25px;
             }
+            
             .content {
                 padding: 25px;
             }
+            
             .contact-methods {
                 flex-direction: row;
                 flex-wrap: wrap;
                 justify-content: center;
             }
+            
             .btn {
                 flex: 0 1 auto;
             }
@@ -330,25 +484,36 @@
 
         /* Desktop - original spacing */
         @media (min-width: 1025px) {
-            body {
+            .hero-section {
+                min-height: 100vh;
                 padding: 40px 20px;
             }
+            
+            .audit-card {
+                margin-top: 40px;
+            }
+            
             .header {
                 padding: 30px;
             }
+            
             .content {
                 padding: 40px;
             }
+            
             .logic-table thead {
                 display: table-header-group;
             }
+            
             .logic-table th {
                 display: table-cell;
             }
+            
             .logic-table td {
                 display: table-cell;
                 text-align: left;
             }
+            
             .logic-table tr {
                 display: table-row;
                 margin-bottom: 0;
@@ -356,14 +521,17 @@
                 padding: 0;
                 background: none;
             }
+            
             .logic-table td:before {
                 display: none;
             }
+            
             .contact-methods {
                 flex-direction: row;
                 justify-content: center;
                 gap: 20px;
             }
+            
             .btn {
                 flex: 0 1 auto;
             }
@@ -372,11 +540,30 @@
 </head>
 <body>
 
+<!-- HERO SECTION - Score and Formula (First Full Screen) -->
+<section class="hero-section">
+    <h1 class="hero-title">STRUCTURAL CERTAINTY AUDIT</h1>
+    <p class="hero-subtitle">Global Alliance Logistics | Framework: BACS v2.0</p>
+    
+    <div class="score-circle-large">
+        <div class="score-num-large">03</div>
+        <div class="score-label-large">Critical Leak</div>
+    </div>
+    
+    <div class="formula-box-large">
+        <div class="formula-text-large">B = M × (<span class="formula-highlight">D + F</span>) × P</div>
+        <div class="formula-label">DETECTION: SEVERE DIAGNOSIS VOID</div>
+    </div>
+    
+    <div class="scroll-indicator">↓ Scroll to see details ↓</div>
+</section>
+
+<!-- MAIN CONTENT -->
 <main class="audit-card">
     <header class="header">
         <div class="header-title">
-            <h1>STRUCTURAL CERTAINTY AUDIT</h1>
-            <p>Target: Global Alliance Logistics | Framework: BACS v2.0</p>
+            <h1>AUDIT DETAILS</h1>
+            <p>Complete Analysis & Recommendations</p>
         </div>
         <div class="score-circle">
             <span class="score-num">03</span>
@@ -386,10 +573,6 @@
 
     <div class="content">
         <div class="section-header"><h2>01. Conversion Axiom Analysis</h2></div>
-        <div class="formula-box">
-            <div class="formula-text">B = M &times; (<span style="color: var(--critical)">D + F</span>) &times; P</div>
-            <div style="color: var(--critical); font-size: 0.8rem; font-weight: bold; margin-top: 10px;">DETECTION: SEVERE DIAGNOSIS VOID</div>
-        </div>
         <p>Motivation (M) is verified via global freight demand. Proof (P) is elite via existing certifications. However, the site fails at <strong>Diagnosis (D)</strong>. Prospects are forced into a "Wait State," manually selecting services without a diagnostic check.</p>
 
         <div class="section-header"><h2>02. The Wall of Choice (Cognitive Load)</h2></div>
