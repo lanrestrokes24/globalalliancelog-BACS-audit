@@ -20,7 +20,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--bg);
             color: var(--text-primary);
-            padding: 40px 20px;
+            padding: 20px;
             margin: 0;
             line-height: 1.6;
         }
@@ -34,16 +34,33 @@
             overflow: hidden;
         }
         .header {
-            padding: 30px;
+            padding: 20px;
             border-bottom: 1px solid var(--border);
             background: linear-gradient(135deg, #1e293b 0%, #0a0f1a 100%);
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .header-title {
+            flex: 1;
+            min-width: 200px;
+        }
+        .header-title h1 {
+            margin: 0;
+            font-size: clamp(1.2rem, 5vw, 1.8rem);
+            font-weight: 800;
+        }
+        .header-title p {
+            margin: 5px 0 0;
+            font-size: clamp(0.75rem, 3vw, 0.9rem);
+            color: var(--text-secondary);
         }
         .score-circle {
-            width: 90px;
-            height: 90px;
+            width: 80px;
+            height: 80px;
+            min-width: 80px;
             border-radius: 50%;
             border: 4px solid var(--critical);
             display: flex;
@@ -52,39 +69,62 @@
             align-items: center;
             background: rgba(248, 113, 113, 0.1);
         }
-        .score-num { font-size: 2rem; font-weight: 800; color: var(--critical); }
-        .score-label { font-size: 0.65rem; text-transform: uppercase; color: var(--text-secondary); }
+        .score-num { 
+            font-size: clamp(1.2rem, 4vw, 2rem); 
+            font-weight: 800; 
+            color: var(--critical); 
+        }
+        .score-label { 
+            font-size: 0.55rem; 
+            text-transform: uppercase; 
+            color: var(--text-secondary); 
+            text-align: center;
+        }
 
-        .content { padding: 40px; }
+        .content { 
+            padding: clamp(15px, 4vw, 40px); 
+        }
         .section-header {
             display: flex;
             align-items: center;
-            margin: 40px 0 20px;
+            margin: 30px 0 15px;
             gap: 10px;
             border-bottom: 1px solid var(--border);
             padding-bottom: 10px;
         }
         .section-header:first-child { margin-top: 0; }
-        .section-header h2 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin: 0; }
+        .section-header h2 { 
+            font-size: clamp(0.7rem, 2.5vw, 0.9rem); 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            color: var(--accent); 
+            margin: 0; 
+        }
         
         .formula-box {
             background: #000;
-            padding: 25px;
+            padding: clamp(15px, 4vw, 25px);
             border-radius: 12px;
             text-align: center;
             border: 1px solid var(--border);
+            overflow-x: auto;
         }
-        .formula-text { font-family: 'Courier New', monospace; font-size: 1.6rem; font-weight: bold; }
+        .formula-text { 
+            font-family: 'Courier New', monospace; 
+            font-size: clamp(1rem, 3vw, 1.6rem); 
+            font-weight: bold;
+            white-space: nowrap;
+        }
         
         .evidence-frame {
-            margin: 25px 0;
+            margin: 20px 0;
             border: 1px solid var(--border);
             border-radius: 12px;
             overflow: hidden;
             background: #070b14;
         }
         .evidence-label {
-            padding: 8px 15px;
+            padding: 10px 15px;
             background: #1e293b;
             font-size: 0.7rem;
             color: var(--accent);
@@ -92,34 +132,185 @@
             font-weight: bold;
             display: flex;
             justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
         }
-        .evidence-img { width: 100%; height: auto; display: block; filter: grayscale(20%); transition: 0.3s; }
-        .evidence-img:hover { filter: grayscale(0%); }
+        .evidence-img { 
+            width: 100%; 
+            height: auto; 
+            display: block; 
+            filter: grayscale(20%); 
+            transition: 0.3s;
+        }
+        .evidence-img:hover { 
+            filter: grayscale(0%); 
+        }
 
-        .logic-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        .logic-table th { text-align: left; font-size: 0.8rem; color: var(--text-secondary); padding: 12px; border-bottom: 1px solid var(--border); }
-        .logic-table td { padding: 15px 12px; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
-        .step-num { color: var(--accent); font-weight: bold; }
+        .logic-table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            margin-top: 20px;
+            font-size: clamp(0.75rem, 2vw, 0.9rem);
+            overflow-x: auto;
+            display: block;
+        }
+        .logic-table thead {
+            display: none;
+        }
+        .logic-table th { 
+            text-align: left; 
+            font-size: 0.8rem; 
+            color: var(--text-secondary); 
+            padding: 12px; 
+            border-bottom: 1px solid var(--border); 
+        }
+        .logic-table td { 
+            padding: 12px; 
+            border-bottom: 1px solid var(--border); 
+            display: block;
+            text-align: left;
+        }
+        .logic-table tr {
+            display: block;
+            margin-bottom: 15px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 10px;
+            background: rgba(30, 41, 59, 0.3);
+        }
+        .logic-table td:before {
+            content: attr(data-label);
+            font-weight: bold;
+            color: var(--accent);
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+        }
+        .step-num { 
+            color: var(--accent); 
+            font-weight: bold;
+        }
 
         .cta-box {
             background: linear-gradient(180deg, #1e293b 0%, #070b14 100%);
-            padding: 50px 30px;
+            padding: clamp(30px, 5vw, 50px) clamp(15px, 4vw, 30px);
             text-align: center;
             border-top: 1px solid var(--border);
+        }
+        .cta-box h3 {
+            margin: 0;
+            font-size: clamp(1rem, 4vw, 1.2rem);
+        }
+        .cta-box p {
+            color: var(--text-secondary);
+            font-size: clamp(0.75rem, 2vw, 0.9rem);
+            margin: 10px 0;
         }
         .btn {
             display: inline-block;
             background: var(--accent);
             color: #000;
-            padding: 18px 40px;
+            padding: clamp(12px, 3vw, 18px) clamp(25px, 5vw, 40px);
             border-radius: 8px;
             font-weight: 800;
             text-decoration: none;
             letter-spacing: 1px;
             margin-top: 20px;
             box-shadow: 0 4px 14px 0 rgba(56, 189, 248, 0.4);
+            font-size: clamp(0.75rem, 2vw, 0.9rem);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
-        .footer-note { font-size: 0.65rem; color: #4a5568; margin-top: 30px; line-height: 1.4; }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px 0 rgba(56, 189, 248, 0.6);
+        }
+        .footer-note { 
+            font-size: 0.65rem; 
+            color: #4a5568; 
+            margin-top: 30px; 
+            line-height: 1.4; 
+        }
+
+        /* Mobile-specific optimizations */
+        @media (max-width: 640px) {
+            body {
+                padding: 10px;
+            }
+            .audit-card {
+                border-radius: 12px;
+            }
+            .header {
+                padding: 15px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .score-circle {
+                align-self: flex-end;
+                margin-top: -15px;
+            }
+            .content {
+                padding: 15px;
+            }
+            .section-header {
+                margin: 20px 0 12px;
+            }
+            .evidence-frame {
+                margin: 15px 0;
+            }
+            .logic-table tr {
+                margin-bottom: 12px;
+                padding: 8px;
+            }
+        }
+
+        /* Tablet optimizations */
+        @media (min-width: 641px) and (max-width: 1024px) {
+            body {
+                padding: 20px;
+            }
+            .header {
+                padding: 25px;
+            }
+            .content {
+                padding: 25px;
+            }
+        }
+
+        /* Desktop - original spacing */
+        @media (min-width: 1025px) {
+            body {
+                padding: 40px 20px;
+            }
+            .header {
+                padding: 30px;
+            }
+            .content {
+                padding: 40px;
+            }
+            .logic-table thead {
+                display: table-header-group;
+            }
+            .logic-table th {
+                display: table-cell;
+            }
+            .logic-table td {
+                display: table-cell;
+                text-align: left;
+            }
+            .logic-table tr {
+                display: table-row;
+                margin-bottom: 0;
+                border: none;
+                padding: 0;
+                background: none;
+            }
+            .logic-table td:before {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
@@ -147,42 +338,54 @@
         <div class="section-header"><h2>02. The Wall of Choice (Cognitive Load)</h2></div>
         <div class="evidence-frame">
             <div class="evidence-label"><span>Asset: wall_of_choice</span><span>Source: Antigravity v4.2</span></div>
-            <img src="wall_of_choice.png" class="evidence-img" alt="Service Grid Overload">
+            <img src="assets/wall_of_choice.png" class="evidence-img" alt="Service Grid Overload">
         </div>
         <p style="font-size: 0.9rem; color: var(--text-secondary);">The 8-option service grid requires the prospect to self-diagnose complex logistics before reaching a specialist. This creates immediate cognitive fatigue and high bounce probability.</p>
 
         <div class="section-header"><h2>03. The Data-Entry Black Box (Friction)</h2></div>
         <div class="evidence-frame">
             <div class="evidence-label"><span>Asset: friction_capture_form</span><span>Status: High Friction (F-)</span></div>
-            <img src="friction_capture_form.png" class="evidence-img" alt="Form Friction Capture">
+            <img src="assets/friction_capture_form.png" class="evidence-img" alt="Form Friction Capture">
         </div>
         <p style="font-size: 0.9rem; color: var(--text-secondary);">Prospects are asked for 10+ data points without receiving a 'Certainty Signal' in return. This is a primary D+F Leak.</p>
 
         <div class="section-header"><h2>04. Proposed Asset: Logistics Certainty Navigator</h2></div>
         <div class="evidence-frame" style="border-color: var(--success); background: rgba(52, 211, 153, 0.05);">
             <div class="evidence-label" style="background: var(--success); color: #000;"><span>Reinforcement Asset: p_signal</span></div>
-            <img src="p_signal.png" class="evidence-img" alt="Trust Anchoring">
+            <img src="assets/p_signal.png" class="evidence-img" alt="Trust Anchoring">
         </div>
         <table class="logic-table">
             <thead>
                 <tr><th width="10%">Step</th><th width="30%">Action</th><th>Objective</th></tr>
             </thead>
             <tbody>
-                <tr><td class="step-num">01</td><td><strong>Route Triage</strong></td><td>Validate lane feasibility instantly to prove network scope.</td></tr>
-                <tr><td class="step-num">02</td><td><strong>Cargo Diagnostic</strong></td><td>Shift from "Which Service?" to "What Constraint?".</td></tr>
-                <tr><td class="step-num">03</td><td><strong>Feasibility Lock</strong></td><td>Anchor P-Signals (WCA/SLA) at the point of decision.</td></tr>
+                <tr>
+                    <td data-label="Step">01</td>
+                    <td data-label="Action"><strong>Route Triage</strong></td>
+                    <td data-label="Objective">Validate lane feasibility instantly to prove network scope.</td>
+                </tr>
+                <tr>
+                    <td data-label="Step">02</td>
+                    <td data-label="Action"><strong>Cargo Diagnostic</strong></td>
+                    <td data-label="Objective">Shift from "Which Service?" to "What Constraint?".</td>
+                </tr>
+                <tr>
+                    <td data-label="Step">03</td>
+                    <td data-label="Action"><strong>Feasibility Lock</strong></td>
+                    <td data-label="Objective">Anchor P-Signals (WCA/SLA) at the point of decision.</td>
+                </tr>
             </tbody>
         </table>
 
         <div class="section-header"><h2>05. Score Justification</h2></div>
-        <div style="background: rgba(239, 68, 68, 0.05); padding: 25px; border-radius: 12px; border: 1px dashed var(--critical);">
-            <p style="margin: 0; font-size: 0.9rem;"><strong>Classification: Critical Failure.</strong> The site abandons the prospect at the point of intent. By providing no immediate diagnosis, the company forces the prospect to perform the work that the internal sales team should be doing. <strong>Target Score after Fix: 9.4/10.</strong></p>
+        <div style="background: rgba(239, 68, 68, 0.05); padding: clamp(15px, 4vw, 25px); border-radius: 12px; border: 1px dashed var(--critical);">
+            <p style="margin: 0; font-size: clamp(0.8rem, 2vw, 0.9rem);"><strong>Classification: Critical Failure.</strong> The site abandons the prospect at the point of intent. By providing no immediate diagnosis, the company forces the prospect to perform the work that the internal sales team should be doing. <strong>Target Score after Fix: 9.4/10.</strong></p>
         </div>
     </div>
 
     <div class="cta-box">
-        <h3 style="margin: 0; font-size: 1.2rem;">READY TO FIX THE D+F LEAK?</h3>
-        <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 10px 0;">Unlock the Full Structural Blueprint and Triage Logic.</p>
+        <h3>READY TO FIX THE D+F LEAK?</h3>
+        <p>Unlock the Full Structural Blueprint and Triage Logic.</p>
         <a href="YOUR_CALENDLY_LINK" class="btn">BOOK 10-MINUTE FEASIBILITY CALL</a>
         
         <div class="footer-note">
